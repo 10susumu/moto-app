@@ -1,4 +1,6 @@
 class ContentController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @contents = Content.all
   end
@@ -12,6 +14,10 @@ class ContentController < ApplicationController
     else
       render :new
     end
+  end
+  def show
+    @content = Content.find(params[:id]) 
+    @user = User.find(@content.user_id)
   end
 
   private

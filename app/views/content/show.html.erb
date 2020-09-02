@@ -1,0 +1,25 @@
+<div class="main py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="h2">
+          <%= image_tag "logo.png", class:"mh-10", width:"35"%>
+          <%= @user.nickname %>
+        </div>
+      <div class="col">
+        <%= image_tag @content.image, class:"img-fluid"%>
+      </div>
+      </div>
+      <div class="col-md-3">テキスト
+      <div class="">
+        <%= @content.text %>
+    </div>
+    </div>
+      <div class="col-md-3">コメント
+      <div class="">
+        <%= @content.text %>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>

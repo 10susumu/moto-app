@@ -10,7 +10,7 @@
 <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
   <div class="collapse navbar-collapse d-flex justify-content-center">
     <div class="d-flex">
-      <a class="navbar-brand text-center" href="#">メニュー</a>
+      <a class="navbar-brand text-center" >メニュー</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -20,10 +20,10 @@
           <li class="nav-item active">
             <%= link_to "トップ", root_path, class: "nav-link" %>
           </li>
+              <% if user_signed_in? %>
           <li class="nav-item">
                 <%= link_to "投稿する", new_content_path, class: "nav-link" %>
           </li>
-              <% if user_signed_in? %>
           <li class="nav-item">
                 <%= link_to "マイページ", "#", class: "nav-link" %>
           </li>

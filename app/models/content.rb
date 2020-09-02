@@ -1,5 +1,4 @@
 class Content < ApplicationRecord
-  before_action :authenticate_user!
 
   with_options presence: true do
     validates :user_id
