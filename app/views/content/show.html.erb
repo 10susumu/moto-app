@@ -17,7 +17,20 @@
     </div>
       <div class="col-md-3">コメント
       <div class="">
-        <%= @content.text %>
+
+      <% @comments.each do |c| %>
+      <p>
+        <a><%= c.user_id %></a>
+        <a><%= c.text %></a>
+      </p>  
+      <% end %>
+
+        <%= form_with model:@comment, url:content_comment_index_path(@content), local: true do |f| %>
+          <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+          <%= f.hidden_field :content_id, value: @content.id %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.submit "SEND" %>
+        <% end %>
     </div>
     </div>
     </div>

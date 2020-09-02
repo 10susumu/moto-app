@@ -18,6 +18,9 @@ class ContentController < ApplicationController
   def show
     @content = Content.find(params[:id]) 
     @user = User.find(@content.user_id)
+    @users = User.all
+    @comment = Comment.new
+    @comments = Comment.all
   end
 
   private
