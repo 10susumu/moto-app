@@ -1,0 +1,26 @@
+
+<div class="main py-5">
+  <div class="container">
+    <div class="row">
+
+      <% @contents.each do |c| %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <%= image_tag c.image, class:"card-img-top", alt:"Card image cap" %>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @contents == nil %>
+        <% 5.times do %>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img class="card-img-top" src="https://picsum.photos/seed/picsum/300" alt="Card image cap">
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

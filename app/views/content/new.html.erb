@@ -1,0 +1,8 @@
+<body  class="text-center" >
+
+      <%= form_with model: @content, url:content_index_path, class:"form-signin", local: true  do |f| %>
+        <%= f.file_field :image, class:"form-control", id:"", required:true %> 
+        <%= f.text_area :text, placeholder: "本文を書く", rows:"10", class:"form-control", id:"", required:true %>
+        <%= f.submit "投稿する", class:"btn btn-lg btn-primary btn-block" %>
+      <% end %>
+</body>

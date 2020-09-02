@@ -1,0 +1,21 @@
+<body  class="text-center" >
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+      </div>
+    </a>
+
+  <%= form_with model:@user, url:user_session_path, class:"form-signin", local:true do |f| %>
+    <%= image_tag "logo.png", class:"mb-4", alt:"", width:72, height:72%>
+    <h1 class="h3 mb-3 font-weight-normal">サインイン</h1>
+
+    <%= f.email_field :email, class:"form-control", id:"inputEmail", placeholder:"メールアドレス", required:true %>
+    <%= f.password_field :password, class:"form-control", id:"inputPassword", placeholder:"パスワード", required:true %>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> 記憶する
+      </label>
+    </div>
+    <%= f.submit "サインイン", class:"btn btn-lg btn-primary btn-block" %>
+  <%end%>
+</body>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MotoApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="/assets/user.scss" rel="stylesheet">
+  </head>
+
+  <body>
+  
+    <%= yield %>
+    <%= render "layouts/nav"%>
+  </body>
+</html>
