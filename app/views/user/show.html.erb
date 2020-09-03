@@ -1,0 +1,36 @@
+<div class="main py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="h2">
+          <%= image_tag "logo.png", class:"mh-10", width:"35"%>
+          <%= @user.nickname %>
+        </div>
+        <div class="col">
+          <%= image_tag @user.avatar, class:"img-fluid" if @user.avatar.attached? %>
+          <%= form_with model:@user, url:user_registration_path, method:"put", local: true do |f| %>
+            <%= f.file_field :avatar %>
+            <%= f.submit "投稿する", class:"btn btn-lg btn-primary btn-block"%>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="font-weight-bold">
+          テキスト
+        </div>
+        <div class="">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="font-weight-bold">
+          コメント
+        </div>
+        <div class="">
+
+          <div class="overflow-auto" style="height: 50vh;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

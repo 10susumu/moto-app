@@ -5,5 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :comments
+  has_one_attached :image
+  has_one_attached :avatar
+
 
 end

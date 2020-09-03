@@ -6,33 +6,40 @@
           <%= image_tag "logo.png", class:"mh-10", width:"35"%>
           <%= @user.nickname %>
         </div>
-      <div class="col">
-        <%= image_tag @content.image, class:"img-fluid"%>
+        <div class="col">
+          <%= image_tag @content.image, class:"img-fluid"%>
+        </div>
       </div>
+      <div class="col-md-3">
+        <div class="font-weight-bold">
+          テキスト
+        </div>
+        <div class="">
+          <%= @content.text %>
+        </div>
       </div>
-      <div class="col-md-3">テキスト
-      <div class="">
-        <%= @content.text %>
-    </div>
-    </div>
-      <div class="col-md-3">コメント
-      <div class="">
+      <div class="col-md-3">
+        <div class="font-weight-bold">
+          コメント
+        </div>
+        <div class="">
+          <%= form_with model:@comment, url:content_comment_index_path(@content), local: true do |f| %>
+            <%= f.hidden_field :content_id, value: @content.id %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.text_area :text, placeholder: "コメントする", rows: "1", class:"form-control" %>
+            <%= f.submit "投稿する", class:"btn btn-lg btn-primary btn-block"%>
+          <% end %>
 
-      <% @comments.each do |c| %>
-      <p>
-        <a><%= c.user_id %></a>
-        <a><%= c.text %></a>
-      </p>  
-      <% end %>
-
-        <%= form_with model:@comment, url:content_comment_index_path(@content), local: true do |f| %>
-          <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
-          <%= f.hidden_field :content_id, value: @content.id %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.submit "SEND" %>
-        <% end %>
-    </div>
-    </div>
+          <div class="overflow-auto" style="height: 50vh;">
+            <% @comments.each do |c| %>
+              <p>
+                <span class="font-weight-bold"><%= @users[c.user_id - 1].nickname %></span>
+                <span><%= c.text %></span>
+              </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
