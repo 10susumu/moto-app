@@ -2,7 +2,6 @@ class Content < ApplicationRecord
 
   with_options presence: true do
     validates :user_id
-    # validates :image
     validates :text
   end
 
