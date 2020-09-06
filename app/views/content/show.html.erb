@@ -3,7 +3,11 @@
     <div class="row">
       <div class="col-md-6">
         <div class="h2">
+        <% if @user.avatar.present? %>
           <%= image_tag @user.avatar, class:"mh-10 rounded-circle", width:"35", height:"35 "%>
+          <% else %>
+            <%= image_tag "emoticon.png", class:"mh-10 rounded-circle", width:"20", height:"20 "%>
+          <% end %>
           <%= @user.nickname %>
         </div>
         <div class="col">
@@ -25,18 +29,24 @@
           コメント
         </div>
         <div class="">
-          <%= form_with model:@comment, url:content_comment_index_path(@content), local: true do |f| %>
-            <%= f.hidden_field :content_id, value: @content.id %>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.text_area :text, placeholder: "コメントする", rows: "1", class:"form-control" %>
-            <%= f.submit "投稿する", class:"btn btn-lg btn-primary btn-block"%>
+          <% if user_signed_in? %>
+            <%= form_with model:@comment, url:content_comment_index_path(@content), local: true do |f| %>
+              <%= f.hidden_field :content_id, value: @content.id %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.text_area :text, placeholder: "コメントする", rows: "1", class:"form-control" %>
+              <%= f.submit "投稿する", class:"btn btn-lg btn-primary btn-block"%>
+            <% end %>
           <% end %>
 
           <div class="overflow-auto" style="height: 50vh;">
-            <% @comments.each do |c| %>
+            <% @comments.where(content_id:@content.id).each do |c| %>
               <p>
-                <%= image_tag @users[c.user_id - 1].avatar, class:"mh-10 rounded-circle", width:"20", height:"20 "%>
-                <span class="font-weight-bold"><%= @users[c.user_id - 1].nickname %></span>
+                <% if @users.find(c.user_id).avatar.present? %>
+                  <%= image_tag @users.find(c.user_id).avatar, class:"mh-10 rounded-circle", width:"20", height:"20 "%>
+                <% else %>
+                  <%= image_tag "emoticon.png", class:"mh-10 rounded-circle", width:"20", height:"20 "%>
+                <% end %>
+                <span class="font-weight-bold"><%= @users.find(c.user_id).nickname %></span>
                 <span><%= c.text %></span>
               </p>
             <% end %>

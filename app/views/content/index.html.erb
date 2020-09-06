@@ -4,10 +4,10 @@
     <div class="row">
 
       <% @contents.each do |c| %>
-        <%= link_to content_path(c.id) do %>
-
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
+        <%= link_to content_path(c.id) do %>
+
             <%= image_tag c.image, class:"card-img-top", alt:"Card image cap" if c.image.attached? %>
           </div>
         </div>
