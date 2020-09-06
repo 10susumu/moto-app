@@ -12,8 +12,10 @@
           <%= @user.nickname %>
         <div class="h2 col">
           <%= @user.profile %>
+          <% if @user.id == current_user.id%>
           <%= form_with model:@user, url:edit_user_registration_path, method:"get", local: true do |f| %>
             <%= f.submit "プロフィールを編集する", class:"btn btn-lg btn-primary btn-block mt-5"%>
+          <% end %>
           <% end %>
         </div>
         </div>

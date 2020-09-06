@@ -2,7 +2,7 @@ class ContentController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @contents = Content.all
+    @contents = Content.all.order(id: "DESC")
   end
   def new
     @content = Content.new
@@ -20,7 +20,7 @@ class ContentController < ApplicationController
     @user = User.find(@content.user_id)
     @users = User.all
     @comment = Comment.new
-    @comments = Comment.all
+    @comments = Comment.all.order(id: "DESC")
   end
 
   private
