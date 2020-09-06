@@ -21,6 +21,33 @@
         </div>
       </div>
 
+      <div class="col-md-12">
+        <div class="col">
+          <% if user_signed_in? %>
+            <%= form_with model:@chat, url:user_chat_index_path(@user), local: true do |f| %>
+              <%= f.hidden_field :master_user_id, value: @user.id %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.text_area :text, placeholder: "コメントする", rows: "1", class:"form-control" %>
+              <%= f.submit "投稿する", class:"btn btn-lg btn-primary btn-block"%>
+            <% end %>
+          <% end %>
+          
+          <div class="h3 overflow-auto">
+            <% @chats.where(master_user_id:@user.id).each do |c| %>
+              <p>
+                <% if @users.find(c.user_id).avatar.present? %>
+                  <%= image_tag @users.find(c.user_id).avatar, class:"mh-10 rounded-circle", width:"20", height:"20 "%>
+                <% else %>
+                  <%= image_tag "emoticon.png", class:"mh-10 rounded-circle", width:"20", height:"20 "%>
+                <% end %>
+                <span class="font-weight-bold"><%= @users.find(c.user_id).nickname %></span>
+                <span><%= c.text %></span>
+              </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
       <% @contents.each do |c| %>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">

@@ -22,6 +22,14 @@ class ContentController < ApplicationController
     @comment = Comment.new
     @comments = Comment.all.order(id: "DESC")
   end
+  def destroy
+    @content = Content.find(params[:id]) 
+    if @content.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
 
   private
   def content_params

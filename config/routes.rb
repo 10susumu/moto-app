@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   end
   
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  resources :user
+  resources :user do
+    resources :chat, only: :create
+  end
 
   root "content#index"
 end
