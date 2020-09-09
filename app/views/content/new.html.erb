@@ -1,8 +1,25 @@
-<body  class="text-center" >
+<div class="main py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
 
-      <%= form_with model: @content, url:content_index_path, class:"form-signin", local: true  do |f| %>
-        <%= f.file_field :image, class:"form-control", id:"", required:true %> 
-        <%= f.text_area :text, placeholder: "本文を書く", rows:"10", class:"form-control", id:"", required:true %>
-        <%= f.submit "投稿する", class:"btn btn-lg btn-primary btn-block" %>
-      <% end %>
-</body>
+        <%= form_with model: @content, url:content_index_path, class:"form-signin", id:"form-signin", local: true  do |f| %>
+          <%= f.file_field :image, class:"form-control", id:"", required:true %> 
+          <%= f.text_area :text, placeholder: "本文を書く", rows:"10", class:"form-control", id:"", required:true %>
+          <%= f.submit "投稿する", class:"btn btn-lg btn-primary btn-block" %>
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        <div>
+          <input id="address" type="textbox" placeholder="場所を検索">
+          <input id="code-address" type="button" value="検索">
+          <div id="display">(緯度,経度)</div>
+        </div>
+        <div class="map-parent">
+          <div id='map' class="map">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

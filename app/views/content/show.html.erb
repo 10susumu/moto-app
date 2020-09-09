@@ -17,7 +17,7 @@
           <div class="image">
             <%= image_tag @content.image, class:"img-fluid img full-width" %>
           </div>
-          <% if @content.user_id == current_user.id%>
+          <% if user_signed_in? && @content.user_id == current_user.id%>
           <%= link_to '投稿を削除する', content_path(@content.id), method: :delete, class:'btn btn-lg btn-primary btn-block' %>
         <% end %>
         </div>
@@ -28,6 +28,13 @@
         </div>
         <div class="">
           <%= @content.text %>
+        </div>
+        <div class="map-parent">
+          <div id='map' class="map">
+          </div>
+        </div>
+        <div id="display">
+          <%= @content.map %>
         </div>
       </div>
       <div class="col-md-3">

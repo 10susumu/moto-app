@@ -16,7 +16,7 @@ class ContentController < ApplicationController
     end
   end
   def show
-    @content = Content.find(params[:id]) 
+    @content = Content.find(params[:id])
     @user = User.find(@content.user_id)
     @users = User.all
     @comment = Comment.new
@@ -33,7 +33,7 @@ class ContentController < ApplicationController
 
   private
   def content_params
-    params.require(:content).permit(:text, :image)
+    params.require(:content).permit(:text, :image, :map)
     .merge(user_id:current_user.id)
   end
 end

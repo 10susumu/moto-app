@@ -12,7 +12,7 @@
           <%= @user.nickname %>
         <div class="h2 col">
           <%= @user.profile %>
-          <% if @user.id == current_user.id%>
+          <% if user_signed_in? && @user.id == current_user.id%>
           <%= form_with model:@user, url:edit_user_registration_path, method:"get", local: true do |f| %>
             <%= f.submit "プロフィールを編集する", class:"btn btn-lg btn-primary btn-block mt-5"%>
           <% end %>
@@ -56,16 +56,6 @@
           </div>
         </div>
       <% end %>
-      <% end %>
-
-      <% if @contents == [] %>
-        <% 5.times do %>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="https://picsum.photos/seed/picsum/300" alt="Card image cap">
-            </div>
-          </div>
-        <% end %>
       <% end %>
 
     </div>
