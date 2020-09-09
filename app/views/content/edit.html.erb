@@ -1,0 +1,50 @@
+<div class="main py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="h2">
+        <%= link_to user_path(@content.user_id) do %>
+
+          <% if @user.avatar.present? %>
+            <%= image_tag @user.avatar, class:"mh-10 rounded-circle", width:"35", height:"35 "%>
+          <% else %>
+            <%= image_tag "emoticon.png", class:"mh-10 rounded-circle", width:"20", height:"20 "%>
+          <% end %>
+          <%= @user.nickname %>
+        <% end %>
+        </div>
+        <div class="image-parent">
+          <div class="image-parent">
+            <%= image_tag @content.image, class:"image" %>
+          </div>
+        </div>
+        <%= form_with model: @content, url:content_path, class:"form-signin", id:"form-signin-image", local: true  do |f| %>
+          <%= f.file_field :image, class:"form-control", id:"", required:true %> 
+          <%= f.submit "編集する", class:"btn btn-lg btn-primary btn-block" %>
+          <% end %>
+      </div>
+      <div class="col-md-6">
+        <div class="font-weight-bold">
+          テキスト
+        </div>
+        <div class="">
+        <%= form_with model: @content, url:content_path, class:"form-signin", id:"form-signin", local: true  do |f| %>
+        <%= f.text_area :text, placeholder: @content.text, rows:"5", class:"form-control", id:"", required:true %>
+        </div>
+        <div>
+          <input id="address" type="textbox" placeholder="場所を検索">
+          <input id="code-address" type="button" value="検索">
+        </div>
+        <div class="map-parent">
+          <div id='map' class="map">
+          </div>
+        </div>
+        <div id="display">
+          <%= @content.map %>
+        </div>
+        <%= f.submit "編集する", class:"btn btn-lg btn-primary btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,6 +22,19 @@ class ContentController < ApplicationController
     @comment = Comment.new
     @comments = Comment.all.order(id: "DESC")
   end
+  def edit
+    @content = Content.find(params[:id])
+    @user = User.find(@content.user_id)
+    @users = User.all
+  end
+  def update
+    @content = Content.find(params[:id])
+    if @content.update(content_params)
+      redirect_to :root
+    else
+      render :edit
+    end
+  end
   def destroy
     @content = Content.find(params[:id]) 
     if @content.destroy
@@ -30,7 +43,7 @@ class ContentController < ApplicationController
       render :show
     end
   end
-
+  
   private
   def content_params
     params.require(:content).permit(:text, :image, :map)

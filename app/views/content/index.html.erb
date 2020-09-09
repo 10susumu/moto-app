@@ -5,10 +5,9 @@
 
       <% @contents.each do |c| %>
         <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-        <%= link_to content_path(c.id) do %>
-
-            <%= image_tag c.image, class:"card-img-top", alt:"Card image cap" if c.image.attached? %>
+          <div class="card mb-4 shadow-sm image-parent">
+            <%= link_to content_path(c.id) do %>
+            <%= image_tag c.image, class:"card-img-top image", alt:"Card image cap" if c.image.attached? %>
           </div>
         </div>
       <% end %>
@@ -17,8 +16,8 @@
       <% if @contents == [] %>
         <% 5.times do %>
           <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="https://picsum.photos/seed/picsum/300" alt="Card image cap">
+            <div class="card mb-4 shadow-sm image-parent">
+              <img class="card-img-top image" src="https://picsum.photos/seed/picsum/300" alt="Card image cap">
             </div>
           </div>
         <% end %>
