@@ -13,14 +13,14 @@
           <%= @user.nickname %>
         <% end %>
         </div>
-        <div class="image-parent">
+        <div class="">
           <div class="image-parent">
-            <%= image_tag @content.image, class:"image" %>
+            <%= image_tag @content.image, class:"card-img-top image" %>
           </div>
         </div>
         <%= form_with model: @content, url:content_path, class:"form-signin", id:"form-signin-image", local: true  do |f| %>
           <%= f.file_field :image, class:"form-control", id:"", required:true %> 
-          <%= f.submit "編集する", class:"btn btn-lg btn-primary btn-block" %>
+          <%= f.submit "写真を編集する", class:"btn btn-lg btn-primary btn-block" %>
           <% end %>
       </div>
       <div class="col-md-6">

@@ -13,14 +13,14 @@
           <%= @user.nickname %>
         <% end %>
         </div>
-        <div class="col">
-          <div class="image-parent">
-            <%= image_tag @content.image, class:"iamge" %>
+        <div class="">
+          <div class=" image-parent">
+            <%= image_tag @content.image, class:"card-img-top iamge" %>
           </div>
           <% if user_signed_in? && @content.user_id == current_user.id%>
-          <%= link_to '投稿を編集する', edit_content_path(@content.id), method: :get, class:'btn btn-lg btn-primary btn-block mt-2' %>
-          <%= link_to '投稿を削除する', content_path(@content.id), method: :delete, class:'btn btn-lg btn-primary btn-block' %>
-        <% end %>
+            <%= link_to '投稿を編集する', edit_content_path(@content.id), method: :get, class:'btn btn-lg btn-primary btn-block mt-2' %>
+            <%= link_to '投稿を削除する', content_path(@content.id), method: :delete, class:'btn btn-lg btn-primary btn-block' %>
+          <% end %>
         </div>
       </div>
       <div class="col-md-3">
