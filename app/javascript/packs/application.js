@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("holderjs")
 require("../maps")
+require("../validate")
 
 import 'bootstrap'
 import '@fortawesome/fontawesome-free/js/all'
