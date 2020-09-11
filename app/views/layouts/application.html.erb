@@ -4,7 +4,7 @@
     <title>MotoApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiII40SNFNXySAJE36nX2vsJn1ClB5fPA&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_API_KEY']%>&callback=initMap" async defer></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
