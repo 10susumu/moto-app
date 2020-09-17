@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "content#index"
   resources :content do
     resources :comment, only: :create
   end
@@ -7,6 +8,4 @@ Rails.application.routes.draw do
   resources :user do
     resources :chat, only: :create
   end
-
-  root "content#index"
 end

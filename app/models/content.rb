@@ -6,6 +6,7 @@ class Content < ApplicationRecord
     validates :image
   end
 
+  belongs_to :user
   has_one_attached :image
   has_many :comments
 end

@@ -4,10 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :contents
   has_many :comments
   has_many :chats
   has_one_attached :avatar
-  has_one_attached :image
+  # has_one_attached :image
 
   validates :nickname, presence: true
   # validates :password, length: { minimum: 6 }
