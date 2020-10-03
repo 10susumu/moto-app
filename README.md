@@ -9,15 +9,17 @@ basic認証 : susumu
 pass     : 2222
 
 # 制作背景
-バイクに乗る人の為にSNSアプリを考えました。
+バイクに乗る人の為にSNSアプリを考えました。\n
 投稿機能には、写真の投稿に加えGoogleMapAPIを使用し、
 地図情報を投稿する機能を追加しました。
 これによりツーリングで訪れた場所と写真が紐付けられます。
 またユーザー同士の交流のためコメント機能を実装しています。
 
 # DEMO
-![top]https://gyazo.com/65d06f6403bcae672aec47ee2c010474
-![show]https://gyazo.com/e4583f5ccbead91e6014492775c8a283
+![top](https://gyazo.com/65d06f6403bcae672aec47ee2c010474)
+<a href="https://gyazo.com/65d06f6403bcae672aec47ee2c010474"><img src="https://i.gyazo.com/65d06f6403bcae672aec47ee2c010474.jpg" alt="Image from Gyazo" width="1255"/></a>
+![show](https://gyazo.com/e4583f5ccbead91e6014492775c8a283)
+<a href="https://gyazo.com/e4583f5ccbead91e6014492775c8a283"><img src="https://i.gyazo.com/e4583f5ccbead91e6014492775c8a283.jpg" alt="Image from Gyazo" width="1252"/></a>
 
 ## user table
 |Column|Type|Options|
