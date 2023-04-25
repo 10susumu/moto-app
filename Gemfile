@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '3.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
@@ -72,5 +72,5 @@ gem "aws-sdk-s3", require: false
 
 group :production, :staging do
   gem 'rails_12factor'
-  gem 'unicorn', '5.4.1'
+  gem 'unicorn', '5.7.0'
 end
