@@ -42,6 +42,9 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
 
+  gem 'psych', '~> 3.1'
+
+
 end
 
 group :development do
