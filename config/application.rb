@@ -19,8 +19,9 @@ Bundler.require(*Rails.groups)
 module MotoApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    ?config.load_defaults 6.0
+    # config.load_defaults 6.0
     config.assets.initialize_on_precompile = false
+    config.load_defaults 6.0 if Rails.version < "6.1" || Rails.env.development?
 
 
     # Settings in config/environments/* take precedence over those specified here.

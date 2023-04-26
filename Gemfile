@@ -77,3 +77,7 @@ group :production, :staging do
   gem 'rails_12factor'
   gem 'unicorn', '5.7.0'
 end
+
+group :production do
+  gem 'rake'
+end
